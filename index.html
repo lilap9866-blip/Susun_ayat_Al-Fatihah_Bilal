@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Al-Fatihah Block Blast</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="app">
+
+  <div class="container">
+
+    <div class="header">
+      <h2>Block Blast Al-Fatihah</h2>
+      <div class="score">⭐ <span id="score">0</span></div>
+    </div>
+
+    <p id="message">Drag block ke slot</p>
+
+    <!-- 🔥 COMBO DISPLAY -->
+    <div id="comboPopup"></div>
+    
+
+    <!-- GRID -->
+    <div class="grid" id="grid"></div>
+
+    <!-- BLOCKS -->
+    <div class="panel" id="panel"></div>
+
+    <!--<button onclick="resetGame()">RESTART</button>-->
+
+  </div>
+
+</div>
+
+<div id="scorePop"></div>
+
+<div id="tutorialOverlay">
+  <div id="hand"></div>
+</div>
+
+<div id="winPopup">
+
+  <div class="win-box">
+
+    <h1>🎉 Selamat Kamu Berhasil!</h1>
+
+    <p>⭐ Score Akhir: <span id="finalScore">0</span></p>
+
+    <p>❌ Total Salah: <span id="finalWrong">0</span>x</p>
+
+    <button onclick="closeWinPopup()">Main Lagi</button>
+
+  </div>
+
+</div>
+
+<audio id="soundCorrect" src="audio/pinter-banget-sih.wav"></audio>
+
+<audio id="soundWrong" src="audio/yaah-salah-deh.wav"></audio>
+
+<audio id="soundCombo" src="audio/masyaallah-hebatnya.wav"></audio>
+
+<audio id="bgMusic" loop>
+  <source src="audio/backsound-islami.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
