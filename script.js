@@ -45,7 +45,10 @@ let wrongCount = 0;
 
 let currentIndex = 0;
 
-let currentStep = 0;
+
+
+const path = [2,1,0,5,4,3,8,7,6];
+let stepIndex = 0;
 
 const blockScores = [
   6,6,6,6,6,6,6,
@@ -96,13 +99,27 @@ function renderGrid() {
 
   grid.forEach((cell, i) => {
     const div = document.createElement("div");
+    
+
     div.className = "cell";
+
+    const currentStep = path[stepIndex];
+
+      if (i === currentStep) {
+      div.classList.add("active-cell");
+    } else {
+      div.classList.add("locked-cell");
+    }
+
     div.dataset.index = i;
     div.innerText = cell || "";
 
     div.ondragover = (e) => e.preventDefault();
 
     div.ondrop = (e) => {
+      const currentStep = path[stepIndex];
+
+      if (i !== currentStep) return;
       if (grid[i]) return;
       const id = e.dataTransfer.getData("text");
       const block = blocks.find(b => b.id == id);
@@ -160,6 +177,7 @@ function renderGrid() {
      showScorePop(blockScores[currentIndex] || 0);
 
      currentIndex++;
+     stepIndex++;
 
     combo++;
 
@@ -261,7 +279,10 @@ function checkWin() {
 
   if (full) {
 
-   
+  
+
+  stepIndex = 0;
+
 
   
 
@@ -302,6 +323,10 @@ function resetGame() {
 
   score = 0;
   currentIndex = 0;
+
+  
+
+  stepIndex = 0;
 
   blocks = generateBlocks();
 
