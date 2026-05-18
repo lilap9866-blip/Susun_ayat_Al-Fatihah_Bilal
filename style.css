@@ -388,3 +388,34 @@ button {
   margin-top: 6px;
   font-size: 25px;
 }
+
+
+
+.active-cell {
+
+  border: 2px solid gold;
+
+  box-shadow:
+    0 0 10px gold,
+    0 0 20px rgba(255,215,0,0.6);
+
+  animation: activePulse 1s infinite alternate;
+}
+
+.locked-cell {
+
+  opacity: 0.35;
+
+  filter: grayscale(1);
+}
+
+@keyframes activePulse {
+
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.03);
+  }
+}
